@@ -16,10 +16,10 @@ project:
     direction was not found in those logged searches (MathSciNet and print
     problem sections remain unsearched).
   authors:
-    - "Tyler Hughes"
+    - "Tyler B. Hughes"
   license: "Apache-2.0"
   responsible_maintainers:
-    - "Tyler Hughes"
+    - "Tyler B. Hughes"
 
 classification:
   arxiv: ["math.CO", "math.NT"]
@@ -59,7 +59,7 @@ sources:
     note: "Establishes existence of a Fibonacci-sum permutation for every k >= 1."
   - title: "Uniqueness of Fibonacci-sum permutations at Layman's numbers"
     authors:
-      - "Tyler Hughes"
+      - "Tyler B. Hughes"
     id: "https://mathdiscoveries.org/results/fibonacci-sum-permutations"
     type: other
     location: "Companion page, verification archive, and prior-work search log at https://mathdiscoveries.org/results/fibonacci-sum-permutations"
@@ -67,7 +67,7 @@ sources:
     note: >-
       Step-lemma proof of the "if" direction (layman_unique_if) and full
       Lean 4 formalization produced by AI research agents built and directed by
-      Tyler Hughes. Logged prior-work searches (arXiv, OEIS edit histories,
+      Tyler B. Hughes. Logged prior-work searches (arXiv, OEIS edit histories,
       zbMATH, Semantic Scholar, OpenAlex, CORE 2026-11-20, Google Scholar
       2026-11-22) did not find a prior proof of the "if" direction; MathSciNet,
       full zbMATH review, and print problem sections remain unsearched.
@@ -87,7 +87,7 @@ automation:
   methods:
     - method: agent
       models: []
-      framework: "AI research agent pipeline built and directed by Tyler Hughes"
+      framework: "AI research agent pipeline built and directed by Tyler B. Hughes"
       tool_setup: >-
         Autonomous builder, adversarial falsifier, and reviewer agents
         discovered the step-lemma proof and formalized the full characterization
@@ -100,7 +100,7 @@ automation:
   spend_usd: "not tracked"
   notes: >-
     All new proofs and Lean 4 formalizations were produced by AI research agents
-    built and directed by Tyler Hughes. No human mathematician has yet refereed
+    built and directed by Tyler B. Hughes. No human mathematician has yet refereed
     the proof.
 
 fidelity:
