@@ -13,7 +13,7 @@ Formalizes:
 2. `fibPermCount_pos` (Sun / Hajnal): every `k` has at least one valid Fibonacci-sum permutation.
 3. `two_le_fibPermCount_of_two_fibs`: two distinct Fibonacci numbers in `(k, 2 * k]` force
    `2 ≤ fibPermCount k`.
-4. `step_lemma` (R11-5-1 falsifier Attack 4): the key structural induction step forcing
+4. `step_lemma`: the key structural induction step forcing
    uniqueness and forbidding sum `G` on `[k]` from uniqueness and forbidding sum `I` on `[t]`.
 -/
 
@@ -158,7 +158,7 @@ theorem two_le_fibPermCount_of_two_fibs {k s₁ s₂ : ℕ}
   have hlt : 1 < fibPermCount k := Fintype.one_lt_card_iff.mpr ⟨p₁, p₂, hne⟩
   omega
 
-/-- **Step Lemma (Attack 4 of R11-5-1)**:
+/-- **Step Lemma**:
 Let `I = F_j`, `H = F_{j+1}`, `G = F_{j+2}`, `F = F_{j+3}` with `j ≥ 3`.
 Suppose `G ≤ k`, `2 * k < F + G`, `t = F - 1 - k ≥ 1`, `H ≤ 2 * t < G`, and `[t]` has
 a unique valid Fibonacci-sum permutation which uses no sum `I`.

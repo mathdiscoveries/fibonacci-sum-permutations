@@ -12,7 +12,7 @@ import Mathlib.Tactic
 Unconditional Lean 4 formalization of:
 1. Small hand cases `fibPermCount k` for `k = 1, 2, 3, 4, 5, 6` and witness lower bound
    `2 ≤ fibPermCount 10`.
-2. **If direction (`layman_unique_if`, R11-5-1)**: `∀ n ≥ 1, fibPermCount (w n) = 1`
+2. **If direction (`layman_unique_if`)**: `∀ n ≥ 1, fibPermCount (w n) = 1`
    (together with the strengthened invariant `layman_unique_strong` forbidding sum `F_{n+1}`).
 3. **Only if direction (`layman_unique_only_if`, Hajnal 2022)**:
    `∀ k ≥ 1, fibPermCount k = 1 → ∃ n ≥ 1, k = w n`.
@@ -377,7 +377,7 @@ theorem two_le_fibPermCount_ten : 2 ≤ fibPermCount 10 := by
   have hlt : 1 < fibPermCount 10 := Fintype.one_lt_card_iff.mpr ⟨p₁, p₂, hne⟩
   omega
 
-/-! ### "If" direction (R11-5-1): uniqueness at every Layman number `w n` -/
+/-! ### "If" direction: uniqueness at every Layman number `w n` -/
 
 /-- Strengthened induction invariant `C(n)`: `[w n]` has a unique valid Fibonacci-sum
 permutation, and that permutation uses no sum equal to `Nat.fib (n + 1)`. -/
@@ -428,7 +428,7 @@ theorem layman_unique_strong (n : ℕ) (hn : 1 ≤ n) :
       have h := hstep.2 p hp i
       rwa [show m + 3 + 2 = m + 4 + 1 by omega] at h
 
-/-- **"If" direction (R11-5-1, the hard direction of Hajnal 2022 Conjecture 1)**:
+/-- **"If" direction (the hard direction of Hajnal 2022 Conjecture 1)**:
 for every `n ≥ 1`, `[w n]` has a unique valid Fibonacci-sum permutation. -/
 theorem layman_unique_if (n : ℕ) (hn : 1 ≤ n) : fibPermCount (w n) = 1 :=
   (layman_unique_strong n hn).1
