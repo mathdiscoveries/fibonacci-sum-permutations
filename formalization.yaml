@@ -7,8 +7,14 @@ project:
     Unconditional Lean 4 + Mathlib formalization proving that there exists a
     unique permutation p of {1, ..., k} with every i + p(i) a Fibonacci number
     if and only if k belongs to Layman's sequence w(n) = floor(F_{n+3} / sqrt(5))
-    (equivalently Hajnal's M4 sequence), proving the "if" half and formalizing
-    both directions together with the floor identity.
+    (equivalently Hajnal's M4 sequence). Formalizes Hajnal's (2022) "only if"
+    direction and Reshetnikov's (2015, OEIS A097083) floor formula alongside a
+    step-lemma proof of the "if" direction (Hajnal Conjecture 1). Companion
+    write-up and dated prior-work searches (arXiv, OEIS, zbMATH, CORE
+    2026-11-20, Google Scholar 2026-11-22) are published at
+    https://mathdiscoveries.org/results/fibonacci-sum-permutations; the "if"
+    direction was not found in those logged searches (MathSciNet and print
+    problem sections remain unsearched).
   authors:
     - "Tyler Hughes"
   license: "Apache-2.0"
@@ -20,25 +26,51 @@ classification:
   msc2020: ["05A05", "11B39"]
 
 sources:
-  - title: "Uniqueness of Fibonacci-sum permutations at Layman's numbers"
-    type: other
-    relationship: other
-    note: >-
-      Step-lemma proof of the "if" direction of Layman's conjecture (Hajnal
-      Conjecture 1) and full Lean 4 formalization of both directions discovered
-      and written by AI research agents built and directed by Tyler Hughes;
-      documented at mathdiscoveries.org.
-  - title: "Fibonacci sum permutations"
+  - title: "A short note on Layman permutations"
     authors:
       - "Peter Hajnal"
+    id: "https://doi.org/10.2478/ausm-2022-0015"
     type: paper
-    location: "Discrete Mathematics (2022)"
+    location: "Acta Universitatis Sapientiae, Mathematica 14(2) (2022), 231-238"
     relationship: formalizes
     note: >-
       Proves the 'only if' direction of the uniqueness characterization
       (formalized as part of hajnal_conjecture_1 and hajnal_conjecture_1_M4)
-      and poses the 'if' direction as Conjecture 1, proved here via an original
-      AI-discovered step-lemma argument.
+      and poses the 'if' direction as Conjecture 1, proved here via a
+      step-lemma induction argument.
+  - title: "OEIS A097083: Numbers k having a unique Fibonacci-sum permutation"
+    authors:
+      - "John W. Layman"
+    id: "https://oeis.org/A097083"
+    type: other
+    location: "OEIS A097083 (Layman 2004; floor formula by V. Reshetnikov 2015)"
+    relationship: formalizes
+    note: >-
+      Introduces the uniqueness sequence (alongside counts in OEIS A097082)
+      and records Reshetnikov's (2015) closed-form floor identity
+      w(n) = floor(F_{n+3} / sqrt(5)), formalized in w_eq_floor_fib_div_sqrt5.
+  - title: "On permutations with Fibonacci sums"
+    authors:
+      - "Zhi-Wei Sun"
+    id: "https://arxiv.org/abs/1811.10503"
+    type: paper
+    location: "arXiv:1811.10503 (2018)"
+    relationship: background
+    note: "Establishes existence of a Fibonacci-sum permutation for every k >= 1."
+  - title: "Uniqueness of Fibonacci-sum permutations at Layman's numbers"
+    authors:
+      - "Tyler Hughes"
+    id: "https://mathdiscoveries.org/results/fibonacci-sum-permutations"
+    type: other
+    location: "Companion page, verification archive, and prior-work search log at https://mathdiscoveries.org/results/fibonacci-sum-permutations"
+    relationship: other
+    note: >-
+      Step-lemma proof of the "if" direction (layman_unique_if) and full
+      Lean 4 formalization produced by AI research agents built and directed by
+      Tyler Hughes. Logged prior-work searches (arXiv, OEIS edit histories,
+      zbMATH, Semantic Scholar, OpenAlex, CORE 2026-11-20, Google Scholar
+      2026-11-22) did not find a prior proof of the "if" direction; MathSciNet,
+      full zbMATH review, and print problem sections remain unsearched.
 
 related_formalizations: []
 
@@ -105,6 +137,6 @@ alignment:
       lean: "FibSumPermChallenge.w_eq_floor_fib_div_sqrt5"
       module: "Challenge"
       status: proved
-      note: "Closed-form floor identity for all n >= 1."
+      note: "Closed-form floor identity for all n >= 1 (Reshetnikov 2015, OEIS A097083)."
 
 acknowledgements: "Built on Lean 4 and Mathlib."
