@@ -1,0 +1,110 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+version: "v0.4"
+
+project:
+  name: "Uniqueness Characterization of Fibonacci-Sum Permutations (Layman's Conjecture / Hajnal Conjecture 1)"
+  description: >-
+    Unconditional Lean 4 + Mathlib formalization proving that there exists a
+    unique permutation p of {1, ..., k} with every i + p(i) a Fibonacci number
+    if and only if k belongs to Layman's sequence w(n) = floor(F_{n+3} / sqrt(5))
+    (equivalently Hajnal's M4 sequence), proving the "if" half and formalizing
+    both directions together with the floor identity.
+  authors:
+    - "Tyler Hughes"
+  license: "Apache-2.0"
+  responsible_maintainers:
+    - "Tyler Hughes"
+
+classification:
+  arxiv: ["math.CO", "math.NT"]
+  msc2020: ["05A05", "11B39"]
+
+sources:
+  - title: "Uniqueness of Fibonacci-sum permutations at Layman's numbers"
+    type: other
+    relationship: other
+    note: >-
+      Step-lemma proof of the "if" direction of Layman's conjecture (Hajnal
+      Conjecture 1) and full Lean 4 formalization of both directions discovered
+      and written by AI research agents built and directed by Tyler Hughes;
+      documented at mathdiscoveries.org.
+  - title: "Fibonacci sum permutations"
+    authors:
+      - "Peter Hajnal"
+    type: paper
+    location: "Discrete Mathematics (2022)"
+    relationship: formalizes
+    note: >-
+      Proves the 'only if' direction of the uniqueness characterization
+      (formalized as part of hajnal_conjecture_1 and hajnal_conjecture_1_M4)
+      and poses the 'if' direction as Conjecture 1, proved here via an original
+      AI-discovered step-lemma argument.
+
+related_formalizations: []
+
+status:
+  scope: >-
+    Unconditionally proved in Lean 4 + Mathlib with standard axioms only (zero
+    sorry, zero native_decide): layman_unique_if, hajnal_conjecture_1,
+    hajnal_conjecture_1_M4, and w_eq_floor_fib_div_sqrt5.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms: ["propext", "Quot.sound", "Classical.choice"]
+
+automation:
+  methods:
+    - method: agent
+      models: []
+      framework: "AI research agent pipeline built and directed by Tyler Hughes"
+      tool_setup: >-
+        Autonomous builder, adversarial falsifier, and reviewer agents
+        discovered the step-lemma proof and formalized the full characterization
+        in Lean 4 + Mathlib.
+      cost:
+        wall_time: "not tracked"
+        spend_usd: "not tracked"
+        hardware: "local machine"
+      prompting_notes: "Goal-directed mathematical discovery and Lean 4 formalization."
+  spend_usd: "not tracked"
+  notes: >-
+    All new proofs and Lean 4 formalizations were produced by AI research agents
+    built and directed by Tyler Hughes. No human mathematician has yet refereed
+    the proof.
+
+fidelity:
+  divergences: ""
+
+review:
+  status: agent-reviewed
+  reviewers:
+    - "Internal adversarial falsifier and reviewer agents"
+  notes: >-
+    Checked by separate internal falsifier and reviewer agents and audited for
+    standard axioms only via FibSumPerm/Verify.lean. Not yet refereed by a human
+    mathematician.
+
+alignment:
+  namespace: "FibSumPermChallenge"
+  statements:
+    - source: "If-direction of Layman's conjecture"
+      lean: "FibSumPermChallenge.layman_unique_if"
+      module: "Challenge"
+      status: proved
+      note: "Unique Fibonacci-sum permutation at every Layman number w(n)."
+    - source: "Complete characterization (Layman w)"
+      lean: "FibSumPermChallenge.hajnal_conjecture_1"
+      module: "Challenge"
+      status: proved
+      note: "fibPermCount k = 1 iff k = w(n) for some n >= 1."
+    - source: "Complete characterization (Hajnal M4)"
+      lean: "FibSumPermChallenge.hajnal_conjecture_1_M4"
+      module: "Challenge"
+      status: proved
+      note: "fibPermCount k = 1 iff k = M4(l) for some l >= 2."
+    - source: "Floor formula w(n) = floor(F_{n+3} / sqrt(5))"
+      lean: "FibSumPermChallenge.w_eq_floor_fib_div_sqrt5"
+      module: "Challenge"
+      status: proved
+      note: "Closed-form floor identity for all n >= 1."
+
+acknowledgements: "Built on Lean 4 and Mathlib."

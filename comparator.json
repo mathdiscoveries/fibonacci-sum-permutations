@@ -1,0 +1,16 @@
+{
+  "challenge_module": "Challenge",
+  "solution_module": "Solution",
+  "theorem_names": [
+    "FibSumPermChallenge.layman_unique_if",
+    "FibSumPermChallenge.hajnal_conjecture_1",
+    "FibSumPermChallenge.hajnal_conjecture_1_M4",
+    "FibSumPermChallenge.w_eq_floor_fib_div_sqrt5"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}
