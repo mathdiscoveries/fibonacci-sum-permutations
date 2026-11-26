@@ -15,7 +15,14 @@ project:
     2026-11-20, Google Scholar 2026-11-22) are published at
     https://mathdiscoveries.org/results/fibonacci-sum-permutations; the "if"
     direction was not found in those logged searches (MathSciNet and print
-    problem sections remain unsearched).
+    problem sections remain unsearched). Coverage by this package's Palomar
+    comparison: of the companion paper's 7 main results, 3 are compared in
+    Lean in full (43%; Theorems 1 and 7 and Corollary 2) and 1 in part
+    (Theorem 6: a(w_n) = 1, without its clause that no valid permutation has
+    a sum F_{n+1}); Propositions 3 and 4 and Theorem 5, with the full Theorem
+    6, are proved in this package's Lean library but not compared;
+    Conjecture 8 is open and not counted. Abstract claims: 3 of 6 compared in
+    full (50%), 1 in part, 2 proved in the library but not compared.
   authors:
     - "Tyler B. Hughes"
   license: "Apache-2.0"
