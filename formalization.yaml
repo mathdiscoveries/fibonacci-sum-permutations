@@ -49,12 +49,12 @@ sources:
       Introduces the uniqueness sequence (alongside counts in OEIS A097082)
       and records Reshetnikov's (2015) closed-form floor identity
       w(n) = floor(F_{n+3} / sqrt(5)), formalized in w_eq_floor_fib_div_sqrt5.
-  - title: "On permutations with Fibonacci sums"
+  - title: "On permutations of {1,...,n} and related topics"
     authors:
       - "Zhi-Wei Sun"
-    id: "https://arxiv.org/abs/1811.10503"
+    id: "https://doi.org/10.1007/s10801-021-01028-8"
     type: paper
-    location: "arXiv:1811.10503 (2018)"
+    location: "Journal of Algebraic Combinatorics 54 (2021), no. 3, 893-912; preprint arXiv:1811.10503 (2018)"
     relationship: background
     note: "Establishes existence of a Fibonacci-sum permutation for every k >= 1."
   - title: "Uniqueness of Fibonacci-sum permutations at Layman's numbers"

@@ -34,6 +34,11 @@
       "resource_type": "publication-article"
     },
     {
+      "identifier": "https://doi.org/10.1007/s10801-021-01028-8",
+      "relation": "references",
+      "resource_type": "publication-article"
+    },
+    {
       "identifier": "https://arxiv.org/abs/1811.10503",
       "relation": "references",
       "resource_type": "publication-preprint"
