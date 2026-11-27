@@ -17,9 +17,9 @@ def IsFib (m : ℕ) : Prop :=
 def IsValidFibPerm (k : ℕ) (p : Equiv.Perm (Fin k)) : Prop :=
   ∀ i : Fin k, IsFib ((i.1 + 1) + ((p i).1 + 1))
 
-noncomputable def fibPermCount (k : ℕ) : ℕ := by
-  classical
-  exact Fintype.card { p : Equiv.Perm (Fin k) // IsValidFibPerm k p }
+open Classical in
+noncomputable def fibPermCount (k : ℕ) : ℕ :=
+  Fintype.card { p : Equiv.Perm (Fin k) // IsValidFibPerm k p }
 
 def w : ℕ → ℕ
   | 0 => 0
