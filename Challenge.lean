@@ -1,3 +1,7 @@
+/-
+Copyright (c) 2026 Tyler B. Hughes. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+-/
 module
 
 public import Mathlib.Data.Fintype.Card
@@ -12,10 +16,11 @@ public import Mathlib.Algebra.Order.Floor.Ring
 A permutation `p` of `{1, ..., k}` is a Fibonacci-sum permutation when
 `i + p(i)` is a positive Fibonacci number for every `i`.
 
-This challenge states the complete characterization: `fibPermCount k = 1` if
-and only if `k` belongs to Layman's sequence `w n` (`1, 2, 3, 5, 9, 15, 24,
-39, 64, ...`), equivalently Hajnal's `M4` sequence, together with Reshetnikov's
-closed-form floor identity `w n = ⌊F_{n+3} / √5⌋`.
+This challenge states the complete characterization: for every `k ≥ 1`,
+`fibPermCount k = 1` if and only if `k = w n` for some `n ≥ 1`, where `w` is
+Layman's sequence (`1, 2, 3, 5, 9, 15, 24, 39, 64, ...`), equivalently
+`k = M4 l` for some `l ≥ 2` (Hajnal's `M4` sequence), together with
+Reshetnikov's closed-form floor identity `w n = ⌊F_{n+3} / √5⌋` for `n ≥ 1`.
 -/
 
 @[expose] public section

@@ -4,10 +4,11 @@ version: "v0.4"
 project:
   name: "Uniqueness Characterization of Fibonacci-Sum Permutations (Layman's Conjecture / Hajnal Conjecture 1)"
   description: >-
-    Unconditional Lean 4 + Mathlib formalization proving that there exists a
-    unique permutation p of {1, ..., k} with every i + p(i) a Fibonacci number
-    if and only if k belongs to Layman's sequence w(n) = floor(F_{n+3} / sqrt(5))
-    (equivalently Hajnal's M4 sequence). Formalizes the companion paper's
+    Unconditional Lean 4 + Mathlib formalization proving that, for every
+    integer k >= 1, there is exactly one permutation p of {1, ..., k} with
+    every i + p(i) a Fibonacci number if and only if k = w(n) for some n >= 1
+    (equivalently, k = M4(l) for some l >= 2), where Layman's sequence is
+    w(n) = floor(F_{n+3} / sqrt(5)) for n >= 1. Formalizes the companion paper's
     proofs of Hajnal's (2022) "only if" direction, of the "if" direction
     (Hajnal Conjecture 1, by a step lemma) and of the floor formula
     conjectured by Reshetnikov (2015, OEIS A097083). Companion
@@ -40,7 +41,7 @@ sources:
     id: "https://doi.org/10.2478/ausm-2022-0015"
     type: paper
     location: "Acta Universitatis Sapientiae, Mathematica 14(2) (2022), 231-238"
-    relationship: formalizes
+    relationship: adapts
     note: >-
       Proves the 'only if' direction of the uniqueness characterization,
       formalized as part of hajnal_conjecture_1 and hajnal_conjecture_1_M4 by
@@ -66,8 +67,15 @@ sources:
     id: "https://doi.org/10.1007/s10801-021-01028-8"
     type: paper
     location: "Journal of Algebraic Combinatorics 54 (2021), no. 3, 893-912; preprint arXiv:1811.10503 (2018)"
-    relationship: background
-    note: "Establishes existence of a Fibonacci-sum permutation for every k >= 1."
+    relationship: independently-proves
+    note: >-
+      arXiv v6 read, pp. 1-2. Remark 1.1 (p. 2) reports a Mathematica count
+      of the Fibonacci-sum permutations for n <= 20, "(f(1), ..., f(20)) =
+      (1, 1, 1, 2, 1, 2, 4, 2, 1, 4, 4, 20, 4, 5, 1, 20, 24, 8, 96, 200)",
+      and gives "(2, 3)(4, 9)(5, 8)(6, 7)" as "the unique permutation in S9".
+      Since w(1), ..., w(6) = 1, 2, 3, 5, 9, 15, layman_unique_if
+      independently proves those uniqueness counts. Sun also proves, in
+      Corollary 1.1, that a valid involution exists for every positive k.
   - title: "Unique Fibonacci-Sum Permutations: Proof of Hajnal's Conjecture and Reshetnikov's Floor Formula"
     authors:
       - "Tyler B. Hughes"
@@ -144,12 +152,12 @@ alignment:
       lean: "FibSumPermChallenge.hajnal_conjecture_1"
       module: "Challenge"
       status: proved
-      note: "fibPermCount k = 1 iff k = w(n) for some n >= 1."
+      note: "For k >= 1, fibPermCount k = 1 iff k = w(n) for some n >= 1."
     - source: "Complete characterization (Hajnal M4)"
       lean: "FibSumPermChallenge.hajnal_conjecture_1_M4"
       module: "Challenge"
       status: proved
-      note: "fibPermCount k = 1 iff k = M4(l) for some l >= 2."
+      note: "For k >= 1, fibPermCount k = 1 iff k = M4(l) for some l >= 2."
     - source: "Floor formula w(n) = floor(F_{n+3} / sqrt(5))"
       lean: "FibSumPermChallenge.w_eq_floor_fib_div_sqrt5"
       module: "Challenge"
